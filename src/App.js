@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { ApiRoutes } from "../src/routes/ApiRoutes";
+import { AuthContextProvider } from "./hooks/AuthContext";
+import { Suspense } from "react";
+import { BrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const twentyFourHoursInMs = 1000 * 60 * 60 * 24;
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchOnmount: false,
+      refetchOnReconnect: false,
+      retry: false,
+      staleTime: twentyFourHoursInMs,
+    },
+  },
+});
 
 function App() {
+  const darkTheme = createTheme({
+    palette: {
+      mode: "dark",
+      primary: {
+        main: "#1976d2",
+      },
+    },
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <Suspense fallback={<>Loading...</>}>
+        <QueryClientProvider client={queryClient}>
+          <AuthContextProvider>
+            <BrowserRouter>
+              <ApiRoutes />
+            </BrowserRouter>
+          </AuthContextProvider>
+        </QueryClientProvider>
+      </Suspense>
+    </ThemeProvider>
   );
 }
 
