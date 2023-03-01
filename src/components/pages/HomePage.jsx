@@ -14,24 +14,24 @@ const HomePage = () => {
   return (
     <>
       <AppBar onButtonClick={toggleDrawerState} />
-      <Grid container spacing={15}>
+      <Grid container spacing={2}>
         <Grid
           item
-          xs={open ? 2 : 1}
-          sm={open ? 2 : 1}
-          lg={open ? 2 : 1}
-          md={open ? 2 : 1}
-          xxl={open ? 2 : 1}
+          xs={open ? 2.5 : 1}
+          sm={open ? 2.5 : 1}
+          lg={open ? 2.5 : 1}
+          md={open ? 2.5 : 1}
+          xxl={open ? 2.5 : 1}
         >
           <Drawer state={open} onClose={toggleDrawerState} />
         </Grid>
         <Grid
           item
-          xs={open ? 10 : 11}
-          sm={open ? 10 : 11}
-          lg={open ? 10 : 11}
-          md={open ? 10 : 11}
-          xxl={open ? 10 : 11}
+          xs={open ? 9.5 : 11}
+          sm={open ? 9.5 : 11}
+          lg={open ? 9.5 : 11}
+          md={open ? 9.5 : 11}
+          xxl={open ? 9.5 : 11}
         >
           <CardsData />
         </Grid>

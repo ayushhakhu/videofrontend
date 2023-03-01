@@ -70,7 +70,7 @@ export const CardsData = ({ ...props }) => {
     },
   ];
   return (
-    <Grid container marginTop={5} columnGap={10} rowGap={5}>
+    <Grid container marginTop={5} columnGap={8} rowGap={5}>
       {data.map((item, index) => (
         <Grid item xs={12} sm={6} md={3} lg={3} xl={3} key={index}>
           <CardItem
