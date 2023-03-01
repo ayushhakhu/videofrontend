@@ -14,7 +14,7 @@ const HomePage = () => {
   return (
     <>
       <AppBar onButtonClick={toggleDrawerState} />
-      <Grid container>
+      <Grid container spacing={20}>
         <Grid
           item
           xs={open ? 2 : 1}

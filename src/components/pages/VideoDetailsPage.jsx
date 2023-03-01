@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 // import { UserDetails } from "../organisms/UserDetails";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Box, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { AppBar } from "../organisms/AppBar";
 // import { useFetchBlog } from "../../api/queries/useFetchBlog";
@@ -53,6 +53,11 @@ const VideoDetailsPage = (props) => {
             fallback={<>Loading Video..</>}
             url="https://www.youtube.com/watch?v=ysz5S6PUM-U"
           />
+          <Box sx={{ height: 200, marginInlineStart: 1 }}>
+            <Box>
+              <Typography variant="h6">Hello Title~~~~~~~~~</Typography>
+            </Box>
+          </Box>
         </Grid>
       </Grid>
     </>
