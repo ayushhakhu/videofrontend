@@ -1,4 +1,3 @@
-import { Typography } from "../atoms/Typography";
 import React, { useContext } from "react";
 import { ToolBar } from "../molecules/ToolBar";
 import { AppBar as MuiAppBar } from "../molecules/AppBar";
@@ -8,54 +7,42 @@ import styled from "@emotion/styled";
 // import { useCreateNewBlogs } from "../../api/mutations/useCreateNewBlogs";
 import { AuthContext } from "../../hooks/AuthContext";
 import { Box } from "@mui/material";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import { Grid } from "@mui/material";
-import {} from "@mui/material/className";
-
-const StyledHeaderTitle = styled(Typography)(({ theme }) => ({
-  fontFamily: `medium-content-sans-serif-font, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif`,
-  fontWeight: 700,
-  [theme.breakpoints.down("md")]: {
-    paddingInline: 0,
-  },
-  color: "rgba(0,0,0,0.8)",
-}));
+import { DrawerHeaderContents } from "../molecules/DrawerHeaderContents";
 
 const StyledToolbar = styled(ToolBar)(() => ({
-  "& .MuiToolbar-root": {
-    backgroundColor: "black",
-  },
+  display: "flex",
+  justifyContent: "flex-end",
+  backgroundColor: "black",
+  alignContent: "center",
 }));
 
-export const AppBar = ({ ...props }) => {
+export const AppBar = ({ onButtonClick, ...props }) => {
   const navigate = useNavigate();
   const { isAuthenticated, onLogout, username } = useContext(AuthContext);
 
   // const { mutate } = useCreateNewBlogs();
 
   return (
-    <MuiAppBar color="primary" position="static" component="nav">
-      <Grid container spacing={0}>
-        <Grid item xs={1} sm={1} lg={1} md={1} xxl={1}>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            style={{ margin: 10 }}
-          >
-            <MenuIcon />
-          </IconButton>
+    <MuiAppBar
+      color="primary"
+      component="nav"
+      sx={{ position: "sticky", top: 0, left: 0 }}
+    >
+      <Grid container>
+        <Grid
+          item
+          xs={6}
+          sm={6}
+          lg={2}
+          md={2}
+          xxl={2}
+          sx={{ backgroundColor: "black" }}
+        >
+          <DrawerHeaderContents onClose={onButtonClick} />
         </Grid>
-        <Grid item xs={11} sm={11} lg={11} md={11} xxl={11}>
-          <StyledToolbar
-            style={{ display: "flex", justifyContent: "space-between" }}
-          >
-            <Button>
-              <StyledHeaderTitle variant="h5" onClick={() => navigate("/")}>
-                YouTube
-              </StyledHeaderTitle>
-            </Button>
+        <Grid item xs={6} sm={6} lg={10} md={10} xxl={10}>
+          <StyledToolbar>
             <Box>
               {!isAuthenticated && (
                 <Button

@@ -1,4 +1,3 @@
-import React from "react";
 import { Paper } from "../molecules/Paper";
 import styled from "@emotion/styled";
 import { Typography } from "../atoms/Typography";

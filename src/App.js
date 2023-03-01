@@ -20,17 +20,10 @@ const queryClient = new QueryClient({
 });
 
 function App() {
-  const darkTheme = createTheme({
-    palette: {
-      mode: "dark",
-      primary: {
-        main: "#1976d2",
-      },
-    },
-  });
+  const theme = createTheme({});
 
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme}>
       <Suspense fallback={<>Loading...</>}>
         <QueryClientProvider client={queryClient}>
           <AuthContextProvider>
