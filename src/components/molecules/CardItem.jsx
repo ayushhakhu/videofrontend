@@ -32,7 +32,7 @@ export const CardItem = ({ imagePath, description, details, ...props }) => {
       <CardContent
         sx={{
           paddingInline: 0,
-          fontFamily: `"Roboto","Arial","sans-serif"`,
+          fontFamily: "Roboto",
           fontSize: 14,
           lineHeight: 20,
           fontWeight: 500,
@@ -45,7 +45,7 @@ export const CardItem = ({ imagePath, description, details, ...props }) => {
           <Box sx={{ width: 250, height: 94 }}>
             <Typography
               sx={{
-                fontFamily: `"Roboto","Arial","sans-serif"`,
+                fontFamily: "Roboto",
                 overflow: "hidden",
                 textOverflow: "ellipsis",
                 display: "-webkit-box",
@@ -61,7 +61,7 @@ export const CardItem = ({ imagePath, description, details, ...props }) => {
             </Typography>
             <Typography
               style={{
-                fontFamily: `"Roboto","Arial","sans-serif"`,
+                fontFamily: "Roboto",
                 fontSize: 12,
               }}
               variant="subtitle2"
