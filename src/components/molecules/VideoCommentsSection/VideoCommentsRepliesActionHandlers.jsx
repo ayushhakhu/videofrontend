@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Chip from "@mui/material/Chip";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { BlogCommentsReplies } from "./BlogCommentsReplies";
+import { VideoCommentsReplies } from "./VideoCommentsReplies";
 
-export const BlogCommentsRepliesActionHandlers = ({
+export const VideoCommentsRepliesActionHandlers = ({
   id,
   reviewCommentsCount,
 }) => {
@@ -36,7 +36,7 @@ export const BlogCommentsRepliesActionHandlers = ({
         icon={reviewId === id ? <ExpandMoreIcon /> : <KeyboardArrowUpIcon />}
       />
       {repliesButtonState && reviewId === id && (
-        <BlogCommentsReplies reviewId={reviewId} />
+        <VideoCommentsReplies reviewId={reviewId} />
       )}
     </>
   );

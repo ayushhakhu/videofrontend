@@ -8,21 +8,45 @@ import { useQueryClient } from "react-query";
 import styled from "@emotion/styled";
 import { Box } from "@mui/material";
 
+const StyledTextField = styled(TextField)(({ theme }) => ({
+  [theme.breakpoints.down("md")]: {
+    maxWidth: 300,
+  },
+  [theme.breakpoints.up("md")]: {
+    maxWidth: 800,
+  },
+  width: "inherit",
+  marginBottom: 20,
+}));
+
+const StyledBox = styled(Box)(({ theme }) => ({
+  width: "inherit",
+  [theme.breakpoints.down("md")]: {
+    maxWidth: 300,
+  },
+  [theme.breakpoints.up("md")]: {
+    maxWidth: 800,
+  },
+  display: "flex",
+  marginBottom: 10,
+  justifyContent: "flex-end",
+}));
+
 export const AddCommentField = ({
   placeholder,
   label,
-  blogId = "",
+  videoId = "",
   reviewId = "",
-  onSucessClick,
-  isPostBlogReviewError,
-  isPostBlogReviewSucess,
-  isPostBlogReviewCommentError,
-  isPostBlogReviewCommentSucess,
+  // onSucessClick,
+  // isPostBlogReviewError,
+  // isPostBlogReviewSucess,
+  // isPostBlogReviewCommentError,
+  // isPostBlogReviewCommentSucess,
   ...props
 }) => {
   const navigate = useNavigate();
 
-  const queryClient = useQueryClient();
+  // const queryClient = useQueryClient();
 
   const [showCommentButton, setShowCommentButton] = useState(false);
 
@@ -45,57 +69,35 @@ export const AddCommentField = ({
     setShowCommentButton(() => false);
   };
 
-  const handleOnSubmitClick = () => {
-    if (!isAuthenticated) {
-      return navigate("/login");
-    }
-    if (label === "Comment" && getValues("Comment")) {
-      let payload = { blogReview: getValues("Comment") };
-      onSucessClick(
-        { blogId: blogId, payload: payload },
-        {
-          onSuccess: (data) => {
-            queryClient.invalidateQueries(`fetchBlogReviews${blogId}`);
-          },
-        }
-      );
-    }
+  // const handleOnSubmitClick = () => {
+  //   if (!isAuthenticated) {
+  //     return navigate("/login");
+  //   }
+  //   if (label === "Comment" && getValues("Comment")) {
+  //     let payload = { blogReview: getValues("Comment") };
+  //     onSucessClick(
+  //       { blogId: blogId, payload: payload },
+  //       {
+  //         onSuccess: (data) => {
+  //           queryClient.invalidateQueries(`fetchBlogReviews${blogId}`);
+  //         },
+  //       }
+  //     );
+  //   }
 
-    if (label === "Reply" && getValues("Reply")) {
-      let payload = { blogReviewComment: getValues("Reply") };
+  //   if (label === "Reply" && getValues("Reply")) {
+  //     let payload = { blogReviewComment: getValues("Reply") };
 
-      onSucessClick(
-        { reviewId: reviewId, payload: payload },
-        {
-          onSuccess: (data) => {
-            queryClient.invalidateQueries(`blogReviewsComments${reviewId}`);
-          },
-        }
-      );
-    }
-  };
-
-  const StyledTextFiedld = styled(TextField)(({ theme }) => ({
-    [theme.breakpoints.down("md")]: {
-      maxWidth: 300,
-    },
-    [theme.breakpoints.up("md")]: {
-      maxWidth: 800,
-    },
-    marginBottom: 2,
-  }));
-
-  const StyledBox = styled(Box)(({ theme }) => ({
-    [theme.breakpoints.down("md")]: {
-      maxWidth: 300,
-    },
-    [theme.breakpoints.up("md")]: {
-      maxWidth: 800,
-    },
-    display: "flex",
-    marginBottom: 10,
-    justifyContent: "flex-end",
-  }));
+  //     onSucessClick(
+  //       { reviewId: reviewId, payload: payload },
+  //       {
+  //         onSuccess: (data) => {
+  //           queryClient.invalidateQueries(`blogReviewsComments${reviewId}`);
+  //         },
+  //       }
+  //     );
+  //   }
+  // };
 
   return (
     <>
@@ -110,13 +112,16 @@ export const AddCommentField = ({
         }}
         render={({ field: { onChange }, fieldState: { error } }) => (
           <>
-            <StyledTextFiedld
+            <StyledTextField
               required
               onChange={(event) => {
                 onChange(event.target.value);
               }}
               onClick={handleClickOnTextField}
               placeholder={placeholder}
+              sx={{
+                marginInlineStart: placeholder === "Add a reply..." ? 8 : 0,
+              }}
             />
             {error && (
               <span style={{ margin: 0, padding: 0, color: "red" }}>
@@ -146,7 +151,7 @@ export const AddCommentField = ({
           <Chip
             label={label}
             variant="outlined"
-            onClick={handleOnSubmitClick}
+            // onClick={handleOnSubmitClick}
             color="primary"
             sx={{
               color: "rgba(41, 41, 41, 1)",

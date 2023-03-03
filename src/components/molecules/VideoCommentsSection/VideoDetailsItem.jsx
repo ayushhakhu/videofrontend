@@ -26,7 +26,7 @@ const StyledVideoTitle = styled(Typography)(({ theme }) => ({
 
 export const VideoDetailsItem = ({ description, details, props }) => {
   return (
-    <Box sx={{ height: 200, marginTop: 2 }}>
+    <Box sx={{ height: 100, marginTop: 2 }}>
       <StyledVideoTitle variant="h6">{description}</StyledVideoTitle>
       <Stack direction={"row"} gap={1}>
         <Avatar sx={{ width: 40, height: 40 }}>UN</Avatar>

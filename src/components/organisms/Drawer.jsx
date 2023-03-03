@@ -42,7 +42,7 @@ export const Drawer = ({
         position: variant === "permanent" ? "sticky" : "absolute",
         top: variant === "permanent" ? 60 : 0,
         left: 0,
-        height: window.innerHeight+10,
+        height: window.innerHeight + 10,
         ...(state && {
           ...openedMixin(),
         }),

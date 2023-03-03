@@ -5,9 +5,9 @@ import { useParams } from "react-router-dom";
 import { AppBar } from "../organisms/AppBar";
 // import { useFetchBlog } from "../../api/queries/useFetchBlog";
 import { Drawer } from "../organisms/Drawer";
-import { VideoComments } from "../organisms/VideoCommentsSection/VideoComments";
+import { VideoComments } from "../molecules/VideoCommentsSection/VideoComments";
 import ReactPlayer from "react-player";
-import { VideoDetailsItem } from "../molecules/VideoDetailsItem";
+import { VideoDetailsItem } from "../molecules/VideoCommentsSection/VideoDetailsItem";
 import styled from "@emotion/styled";
 
 const data = {
@@ -26,7 +26,7 @@ const StyledGridItem = styled(Box)(({ theme }) => ({
   },
 }));
 
-const VideoDetailsPage = (props) => {
+const VideoDetailsPage = ({ props }) => {
   let params = useParams();
 
   const { videoId } = params;

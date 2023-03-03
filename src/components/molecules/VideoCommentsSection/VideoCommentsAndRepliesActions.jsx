@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
-import { IconButton } from "../atoms/IconButton";
+import { IconButton } from "../../atoms/IconButton";
 import { Delete } from "@mui/icons-material";
 import styled from "@emotion/styled";
 import Chip from "@mui/material/Chip";
-import { AuthContext } from "../../hooks/AuthContext";
-import { useDeleteReview } from "../../api/mutations/useDeleteReview";
+import { AuthContext } from "../../../hooks/AuthContext";
+// import { useDeleteReview } from "../../api/mutations/useDeleteReview";
 
-const StyledBlogCommentsAndReviewsActions = styled("div")(({ theme }) => ({
+const StyledVideoCommentsAndRepliesActions = styled("div")(({ theme }) => ({
   overflow: "hidden",
   [theme.breakpoints.down("md")]: {
     maxWidth: 300,
@@ -23,20 +23,20 @@ const StyledBlogCommentsAndReviewsActions = styled("div")(({ theme }) => ({
   alignItems: "end",
 }));
 
-export const BlogCommentsAndReviewsActions = ({
+export const VideoCommentsAndRepliesActions = ({
   setshowReplyIdButton,
   id,
   showReplyIdButton,
   username: bodyUsername,
-  blogId,
+  videoId,
 }) => {
   const { username } = useContext(AuthContext);
-  const { mutate } = useDeleteReview(blogId);
-  const onDeleteReviewHandler = () => {
-    mutate(id);
-  };
+  // const { mutate } = useDeleteReview(videoId);
+  // const onDeleteReviewHandler = () => {
+  //   mutate(id);
+  // };
   return (
-    <StyledBlogCommentsAndReviewsActions>
+    <StyledVideoCommentsAndRepliesActions>
       {!showReplyIdButton ? (
         <Chip
           label={`Reply`}
@@ -90,10 +90,12 @@ export const BlogCommentsAndReviewsActions = ({
         />
       )}
       {username === bodyUsername && (
-        <IconButton onClick={onDeleteReviewHandler}>
+        <IconButton
+        // onClick={onDeleteReviewHandler}
+        >
           <Delete fontSize="small" />
         </IconButton>
       )}
-    </StyledBlogCommentsAndReviewsActions>
+    </StyledVideoCommentsAndRepliesActions>
   );
 };
