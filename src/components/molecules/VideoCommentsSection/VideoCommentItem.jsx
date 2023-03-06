@@ -32,7 +32,7 @@ const StyledCommentsAndReplies = styled(Typography)(({ theme }) => ({
   },
   overflowWrap: "break-word",
   fontSize: 14,
-  color: "rgba(41, 41, 41, 1)",
+  color: "white",
   fontFamily: `Roboto, Helvetica, Arial, sans-serif`,
   fontWeight: 400,
   paddingInline: 18,

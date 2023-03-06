@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 
 const twentyFourHoursInMs = 1000 * 60 * 60 * 24;
 
@@ -20,10 +21,15 @@ const queryClient = new QueryClient({
 });
 
 function App() {
-  const theme = createTheme({});
+  const theme = createTheme({
+    palette: {
+      mode: "dark",
+    },
+  });
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Suspense fallback={<>Loading...</>}>
         <QueryClientProvider client={queryClient}>
           <AuthContextProvider>

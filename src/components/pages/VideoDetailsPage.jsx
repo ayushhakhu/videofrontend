@@ -9,6 +9,7 @@ import { VideoComments } from "../molecules/VideoCommentsSection/VideoComments";
 import ReactPlayer from "react-player";
 import { VideoDetailsItem } from "../molecules/VideoCommentsSection/VideoDetailsItem";
 import styled from "@emotion/styled";
+import { RelatedVideos } from "../organisms/RelatedVideos";
 
 const data = {
   imagePath: "AYUSHHAKHU.jpg",
@@ -54,7 +55,7 @@ const VideoDetailsPage = ({ props }) => {
       />
       <StyledGridItem>
         <Grid container>
-          <Grid item>
+          <Grid item xs={8} sm={8} md={8} lg={8} xxl={8}>
             <ReactPlayer
               style={{ marginTop: 20, marginLeft: 0 }}
               width={800}
@@ -69,6 +70,9 @@ const VideoDetailsPage = ({ props }) => {
               details={data.details}
             />
             <VideoComments videoId={videoId} />
+          </Grid>
+          <Grid item xs={4} sm={4} md={4} lg={4} xxl={4}>
+            <RelatedVideos />
           </Grid>
         </Grid>
       </StyledGridItem>

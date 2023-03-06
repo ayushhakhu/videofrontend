@@ -6,14 +6,14 @@ import { useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 // import { useCreateNewBlogs } from "../../api/mutations/useCreateNewBlogs";
 import { AuthContext } from "../../hooks/AuthContext";
-import { Box } from "@mui/material";
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { DrawerHeaderContents } from "../molecules/DrawerHeaderContents";
+import { SearchInput } from "../molecules/SearchInput";
 
 const StyledToolbar = styled(ToolBar)(() => ({
   display: "flex",
+  backgroundColor: "inherit",
   justifyContent: "flex-end",
-  backgroundColor: "black",
   alignContent: "center",
 }));
 
@@ -30,18 +30,13 @@ export const AppBar = ({ onButtonClick, ...props }) => {
       sx={{ position: "sticky", top: 0, left: 0 }}
     >
       <Grid container>
-        <Grid
-          item
-          xs={6}
-          sm={6}
-          lg={2}
-          md={2}
-          xxl={2}
-          sx={{ backgroundColor: "black" }}
-        >
+        <Grid item xs={3} sm={3} lg={3} md={3} xxl={3}>
           <DrawerHeaderContents onClose={onButtonClick} />
         </Grid>
-        <Grid item xs={6} sm={6} lg={10} md={10} xxl={10}>
+        <Grid item xs={6} sm={6} lg={6} md={6} xxl={6}>
+          <SearchInput />
+        </Grid>
+        <Grid item xs={3} sm={3} lg={3} md={3} xxl={3}>
           <StyledToolbar>
             <Box>
               {!isAuthenticated && (

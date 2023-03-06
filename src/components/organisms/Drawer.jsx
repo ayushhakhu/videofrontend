@@ -42,7 +42,6 @@ export const Drawer = ({
         position: variant === "permanent" ? "sticky" : "absolute",
         top: variant === "permanent" ? 60 : 0,
         left: 0,
-        height: window.innerHeight + 10,
         ...(state && {
           ...openedMixin(),
         }),
@@ -53,7 +52,6 @@ export const Drawer = ({
           position: "sticky",
           transition: "ease-in-out",
           overflowX: "hidden",
-          backgroundColor: "black",
           color: "white",
         },
       }}

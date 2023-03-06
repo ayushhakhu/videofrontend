@@ -139,7 +139,7 @@ export const AddCommentField = ({
             onClick={handleClickOnCancelButton}
             color="primary"
             sx={{
-              color: "rgba(41, 41, 41, 1)",
+              color: "white",
               fontFamily: `sohne, "Helvetica Neue", Helvetica, Arial, sans-serif`,
               fontWeight: 400,
               marginTop: 2,
@@ -154,7 +154,7 @@ export const AddCommentField = ({
             // onClick={handleOnSubmitClick}
             color="primary"
             sx={{
-              color: "rgba(41, 41, 41, 1)",
+              color: "white",
               fontFamily: `sohne, "Helvetica Neue", Helvetica, Arial, sans-serif`,
               fontWeight: 200,
               marginTop: 2,

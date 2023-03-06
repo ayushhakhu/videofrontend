@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import { Grid } from "@mui/material";
 import { AppBar } from "../organisms/AppBar";
 import { CardsData } from "../organisms/CardsData";
@@ -14,14 +14,14 @@ const HomePage = () => {
   return (
     <>
       <AppBar onButtonClick={toggleDrawerState} />
-      <Grid container spacing={2}>
+      <Grid container spacing={10}>
         <Grid
           item
-          xs={open ? 2.5 : 1}
-          sm={open ? 2.5 : 1}
-          lg={open ? 2.5 : 1}
-          md={open ? 2.5 : 1}
-          xxl={open ? 2.5 : 1}
+          xs={open ? 2.5 : 0.5}
+          sm={open ? 2.5 : 0.5}
+          lg={open ? 2.5 : 0.5}
+          md={open ? 2.5 : 0.5}
+          xxl={open ? 2.5 : 0.5}
         >
           <Drawer state={open} onClose={toggleDrawerState} />
         </Grid>
@@ -33,7 +33,7 @@ const HomePage = () => {
           md={open ? 9.5 : 11}
           xxl={open ? 9.5 : 11}
         >
-          <CardsData />
+          <CardsData open={open} />
         </Grid>
       </Grid>
     </>

@@ -39,6 +39,7 @@ const StyledVideoCommentsReplies = styled(Typography)(({ theme }) => ({
   fontWeight: 200,
   paddingInline: 18,
   marginTop: 10,
+  color: "white",
 }));
 
 const StyledAvatarAndUsername = styled(Box)(({ theme }) => ({
@@ -52,6 +53,7 @@ const StyledCommentsAndReviews = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   alignContent: "center",
+  color: "white",
 }));
 
 const data = {
@@ -120,6 +122,7 @@ export const VideoCommentsReplies = ({ reviewId }) => {
                 fontFamily: `sohne, "Helvetica Neue", Helvetica, Arial, sans-serif`,
                 fontWeight: 700,
                 paddingInline: 2,
+                color: "white",
               }}
               variant="h6"
             >

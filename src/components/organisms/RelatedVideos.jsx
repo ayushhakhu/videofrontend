@@ -1,6 +1,5 @@
-import { Grid } from "@mui/material";
-import React from "react";
-import { CardItem } from "../molecules/CardItem";
+import { Box } from "@mui/material";
+import { RelatedVideoCardItem } from "../molecules/RelatedVideoCardItem";
 
 const data = [
   {
@@ -68,28 +67,17 @@ const data = [
     details: "One of the best video",
   },
 ];
-
-export const CardsData = ({ open, ...props }) => {
+export const RelatedVideos = ({ props }) => {
   return (
-    <Grid container marginTop={5} columnGap={8} rowGap={5}>
+    <Box sx={{ marginTop: 2.5, marginLeft: 8 }}>
       {data.map((item, index) => (
-        <Grid
-          item
-          xs={open ? 12 : 11.5}
-          sm={open ? 6 : 5.5}
-          md={open ? 3 : 2.5}
-          lg={open ? 3 : 2.5}
-          xl={open ? 3 : 2.5}
+        <RelatedVideoCardItem
           key={index}
-        >
-          <CardItem
-            key={index}
-            description={item.description}
-            details={item.details}
-            imagePath={item.imagePath}
-          />
-        </Grid>
+          description={item.description}
+          details={item.details}
+          imagePath={item.imagePath}
+        />
       ))}
-    </Grid>
+    </Box>
   );
 };

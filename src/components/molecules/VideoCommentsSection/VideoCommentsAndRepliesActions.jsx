@@ -45,13 +45,16 @@ export const VideoCommentsAndRepliesActions = ({
           color="primary"
           sx={{
             display: "flex",
-            color: "rgba(41, 41, 41, 1)",
+            color: "white",
             fontFamily: `sohne, "Helvetica Neue", Helvetica, Arial, sans-serif`,
             fontWeight: 200,
             marginTop: 2,
             marginInline: 2,
             width: 100,
             border: 0,
+            "&:hover": {
+              backgroundColor: "wheat",
+            },
           }}
         />
       ) : showReplyIdButton === id ? (
@@ -62,13 +65,16 @@ export const VideoCommentsAndRepliesActions = ({
           color="primary"
           sx={{
             display: "flex",
-            color: "rgba(41, 41, 41, 1)",
+            color: "white",
             fontFamily: `sohne, "Helvetica Neue", Helvetica, Arial, sans-serif`,
             fontWeight: 200,
             marginTop: 2,
             marginInline: 2,
             width: 100,
             border: 0,
+            "&:hover": {
+              backgroundColor: "wheat",
+            },
           }}
         />
       ) : (
@@ -79,13 +85,16 @@ export const VideoCommentsAndRepliesActions = ({
           color="primary"
           sx={{
             display: "flex",
-            color: "rgba(41, 41, 41, 1)",
+            color: "white",
             fontFamily: `sohne, "Helvetica Neue", Helvetica, Arial, sans-serif`,
             fontWeight: 200,
             marginTop: 2,
             marginInline: 2,
             width: 100,
             border: 0,
+            "&:hover": {
+              backgroundColor: "wheat",
+            },
           }}
         />
       )}

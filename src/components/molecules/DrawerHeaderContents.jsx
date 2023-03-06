@@ -31,7 +31,7 @@ const StyledHeaderTitle = styled(Typography)(({ theme }) => ({
   color: "white",
 }));
 
-export const DrawerHeaderContents = ({onClose}) => {
+export const DrawerHeaderContents = ({ onClose }) => {
   const navigate = useNavigate();
 
   return (
@@ -44,7 +44,7 @@ export const DrawerHeaderContents = ({onClose}) => {
       >
         <MenuIcon />
       </StyledHamburgButton>
-      <Button>
+      <Button disableRipple>
         <StyledHeaderTitle variant="h5" onClick={() => navigate("/")}>
           YouTube
         </StyledHeaderTitle>
