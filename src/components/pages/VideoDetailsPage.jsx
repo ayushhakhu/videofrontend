@@ -32,8 +32,6 @@ const VideoDetailsPage = ({ props }) => {
 
   const { videoId } = params;
 
-  console.log("videoId~~~~~~~~~~>", videoId);
-
   // const { data, isSuccess, isError, isLoading } = useFetchBlog(blogId);
 
   // const memoMizedData = useMemo(() => data?.data, [data]);
